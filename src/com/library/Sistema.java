@@ -1,6 +1,7 @@
 package library;
 
 import java.util.HashMap;
+
 import comando.*;
 
 public class Sistema {
@@ -8,8 +9,7 @@ public class Sistema {
 	
 	public Sistema(){
 		comandos = new HashMap();
-		
-		
+				
 	}
 	
 	private void iniciarComandos(){
@@ -38,5 +38,11 @@ public class Sistema {
 		comandos.put("sai", SaidaCommand.getInstancia());
 	}
 	
+	public void servico(String comando, Dados dado){
+		
+		Command c = (Command) comandos.get(comando);
+		
+		c.execute(dado);
+	}
 	
 }
