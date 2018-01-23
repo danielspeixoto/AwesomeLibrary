@@ -1,6 +1,7 @@
 package comando;
 
 import fachada.Facade;
+import library.Dados;
 
 public class NotificacaoCommand implements Command{
 	//Utilização do Singleton
@@ -14,9 +15,10 @@ public class NotificacaoCommand implements Command{
 		return instancia;
 	}
 
+
 	@Override
-	public Object execute() {
-		Facade.getInstancia().obterNotificacoes();;
+	public Object execute(Dados dado) {
+		Facade.getInstancia().obterNotificacoes();
 		
 		return null;
 	}

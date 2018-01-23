@@ -1,5 +1,7 @@
 package comando;
 
+import library.Dados;
+
 public interface Command {
-	public Object execute();
+	public Object execute(Dados dado);
 }

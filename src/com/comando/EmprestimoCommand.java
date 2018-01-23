@@ -1,6 +1,7 @@
 package comando;
 
 import fachada.Facade;
+import library.Dados;
 public class EmprestimoCommand implements Command {
 	//Utilização do Singleton
 	private static EmprestimoCommand instancia;
@@ -16,7 +17,7 @@ public class EmprestimoCommand implements Command {
 	
 
 	@Override
-	public Object execute() {
+	public Object execute(Dados dado) {
 		Facade.getInstancia().realizarEmprestimo();
 		
 		return null;

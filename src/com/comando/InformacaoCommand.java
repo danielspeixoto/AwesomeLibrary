@@ -1,6 +1,7 @@
 package comando;
 
 import fachada.Facade;
+import library.Dados;
 
 public class InformacaoCommand implements Command{
 	//Utilização do Singleton
@@ -14,9 +15,11 @@ public class InformacaoCommand implements Command{
 		return instancia;
 	}
 
+
 	@Override
-	public Object execute() {
+	public Object execute(Dados dado) {
 		Facade.getInstancia().obterInformacoesLivro();
+		
 		
 		return null;
 	}

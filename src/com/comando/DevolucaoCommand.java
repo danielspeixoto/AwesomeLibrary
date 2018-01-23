@@ -1,6 +1,7 @@
 package comando;
 
 import fachada.Facade;
+import library.Dados;
 
 public class DevolucaoCommand implements Command {
 	//Utilização do Singleton
@@ -14,8 +15,10 @@ public class DevolucaoCommand implements Command {
 		return instancia;
 	}
 
+
+
 	@Override
-	public Object execute() {
+	public Object execute(Dados dado) {
 		Facade.getInstancia().realizarDevolucao();
 		
 		return null;
