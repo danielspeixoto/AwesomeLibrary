@@ -9,6 +9,8 @@ public class Sistema {
 	
 	public Sistema(){
 		comandos = new HashMap();
+		
+		this.iniciarComandos();
 				
 	}
 	
@@ -35,7 +37,7 @@ public class Sistema {
 		comandos.put("usu", HistoricoCommand.getInstancia());
 		
 		//Sair
-		comandos.put("sai", SaidaCommand.getInstancia());
+		//comandos.put("sai", SaidaCommand.getInstancia());
 	}
 	
 	public void servico(String comando, Dados dado){
