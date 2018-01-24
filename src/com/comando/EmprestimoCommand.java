@@ -18,7 +18,7 @@ public class EmprestimoCommand implements Command {
 
 	@Override
 	public Object execute(Dados dado) {
-		Facade.getInstancia().realizarEmprestimo();
+		Facade.getInstancia().realizarEmprestimo(dado.getIdUsuario(),dado.getIdLivro());
 		
 		return null;
 	}

@@ -1,4 +1,4 @@
-package comando;
+/*package comando;
 
 import fachada.Facade;
 import library.Dados;
@@ -23,4 +23,4 @@ public class SaidaCommand implements Command {
 		return null;
 	}
 
-}
+}*/

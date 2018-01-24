@@ -19,7 +19,7 @@ public class DevolucaoCommand implements Command {
 
 	@Override
 	public Object execute(Dados dado) {
-		Facade.getInstancia().realizarDevolucao();
+		Facade.getInstancia().realizarDevolucao(dado.getIdUsuario(),dado.getIdLivro());
 		
 		return null;
 	}

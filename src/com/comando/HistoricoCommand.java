@@ -18,7 +18,7 @@ public class HistoricoCommand implements Command{
 
 	@Override
 	public Object execute(Dados dado) {
-		Facade.getInstancia().obterHistorico();
+		Facade.getInstancia().obterHistorico(dado.getIdUsuario());
 		
 		return null;
 	}

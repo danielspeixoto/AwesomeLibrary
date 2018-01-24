@@ -18,7 +18,7 @@ public class InformacaoCommand implements Command{
 
 	@Override
 	public Object execute(Dados dado) {
-		Facade.getInstancia().obterInformacoesLivro();
+		Facade.getInstancia().obterInformacoesLivro(dado.getIdLivro());
 		
 		
 		return null;

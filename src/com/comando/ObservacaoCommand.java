@@ -18,7 +18,7 @@ public class ObservacaoCommand implements Command {
 
 	@Override
 	public Object execute(Dados dado) {
-		Facade.getInstancia().observarLivro();
+		Facade.getInstancia().observarLivro(dado.getIdUsuario(),dado.getIdLivro());
 		
 		return null;
 	}

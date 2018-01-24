@@ -18,7 +18,7 @@ public class NotificacaoCommand implements Command{
 
 	@Override
 	public Object execute(Dados dado) {
-		Facade.getInstancia().obterNotificacoes();
+		Facade.getInstancia().obterNotificacoes(dado.getIdUsuario());
 		
 		return null;
 	}

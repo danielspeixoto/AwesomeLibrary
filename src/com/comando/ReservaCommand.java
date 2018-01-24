@@ -18,7 +18,7 @@ public class ReservaCommand implements Command {
 
 	@Override
 	public Object execute(Dados dado) {
-		Facade.getInstancia().realizarReserva();
+		Facade.getInstancia().realizarReserva(dado.getIdUsuario(),dado.getIdLivro());
 		
 		return null;
 	}
