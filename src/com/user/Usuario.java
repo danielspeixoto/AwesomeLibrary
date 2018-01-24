@@ -1,20 +1,22 @@
 package user;
 
-public abstract class Usuario {
-	private int id;
-	private String nome;
+import java.util.ArrayList;
 
-	public int getId() {
+public abstract class Usuario {
+	private final String id;
+	private final String nome;
+	
+	public Usuario(String id, String nome){
+		this.id = id;
+		this.nome = nome;
+	}
+
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public String getNome() {
 		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 	
 }
