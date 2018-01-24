@@ -13,36 +13,40 @@ public class Facade {
 		
 		return instancia;
 	}
-
-	public void realizarEmprestimo(){
+	
+	//emp
+	public void realizarEmprestimo(String idUsuario, String idLivro){
 		
 	}
 	
-	public void realizarDevolucao(){
+	//dev
+	public void realizarDevolucao(String idUsuario, String idLivro){
 		
 	}
 	
-	public void realizarReserva(){
+	//res
+	public void realizarReserva(String idUsuario, String idLivro){
 		
 	}
 	
-	public void obterInformacoesLivro(){
+	
+	//obs
+	public void observarLivro(String idUsuario, String idLivro){
 		
 	}
 	
-	public void observarLivro(){
+	//liv
+	public void obterInformacoesLivro(String idLivro){
 		
 	}
 	
-	public void obterNotificacoes(){
+	//ntf
+	public void obterNotificacoes(String idUsuario){
 		
 	}
 	
-	public void obterHistorico(){
-		
-	}
-	
-	public void sair(){
+	//usu
+	public void obterHistorico(String idUsuario){
 		
 	}
 	
