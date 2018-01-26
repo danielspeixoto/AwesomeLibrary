@@ -2,19 +2,25 @@ package book;
 
 import java.util.ArrayList;
 
-public class Exemplar extends Livro {
+import state.EstadoExemplar;
+
+public class Exemplar  {
 	private final String codigo;
+	private EstadoExemplar estadoAtual;
 	
-	private ArrayList exemplares = new ArrayList();
-	
-	public Exemplar(String id, String titulo, String editora, String autores, String edicao, String anoDePublicacao,
-			String codigo) {
-		
-		super(id, titulo, editora, autores, edicao, anoDePublicacao);
+	public Exemplar(String codigo, EstadoExemplar estadoInicial) {
 		this.codigo = codigo;
-		
-		exemplares.add(this);
-		
+		this.estadoAtual = estadoInicial;
+	}
+
+
+	public EstadoExemplar getEstadoAtual() {
+		return estadoAtual;
+	}
+
+
+	public void setEstadoAtual(EstadoExemplar estadoAtual) {
+		this.estadoAtual = estadoAtual;
 	}
 
 
