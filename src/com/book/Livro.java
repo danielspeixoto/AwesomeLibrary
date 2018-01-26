@@ -3,11 +3,12 @@ package book;
 import java.util.ArrayList;
 
 import funcionalidades.Reserva;
+import observer.*;
 import state.EstadoExemplar;
 import state.EstadoLivro;
 import user.Usuario;
 
-public class Livro {
+public class Livro implements Subject{
 	private final String id;
 	private final String titulo;
 	private final String editora;
@@ -16,6 +17,7 @@ public class Livro {
 	private final String anoDePublicacao;
 	private ArrayList<Reserva> reservas;
 	private ArrayList exemplares = new ArrayList();
+	private ArrayList observers;
 	
 	private EstadoLivro estadoAtual;
 	
@@ -55,10 +57,42 @@ public class Livro {
 			System.out.println("Reserva do livro "+this.getTitulo()+", feita pelo usuario "+
 					usuario.getNome()+" realizada com sucesso.");
 			
+			this.verificaReservasSimultaneas();
 		}
+					
 		
+	}
+	
+	public void verificaReservasSimultaneas(){
 		
-			
+		if(reservas.size() > 2)
+			this.notifyObserver();
+	}
+	
+	
+	@Override
+	public void registerObservers(Observer o) {
+		observers.add(o);
+		
+	}
+
+
+	@Override
+	public void removeObservers(Observer o) {
+		int i = observers.indexOf(o);
+		
+		if(i >= 0)
+			observers.remove(i);
+		
+	}
+
+
+	@Override
+	public void notifyObserver() {
+
+		for(int i = 0; i < observers.size(); i++){
+	           Observer o = (Observer)observers.get(i);
+		}
 		
 	}
 
@@ -93,6 +127,7 @@ public class Livro {
 	public String getTitulo() {
 		return titulo;
 	}
+	
 	
 	
 	
