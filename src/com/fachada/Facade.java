@@ -95,7 +95,10 @@ public class Facade {
 	
 	//obs
 	public void observarLivro(String idUsuario, String idLivro){
+		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
+		Professor usuario = (Professor) Facade.getInstancia().obterUsuarioPorId(idUsuario);
 		
+		usuario.registrarObservadorDeLivro(livro);
 	}
 	
 	//liv
