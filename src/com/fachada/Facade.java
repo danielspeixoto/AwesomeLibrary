@@ -3,7 +3,9 @@ package fachada;
 import java.util.ArrayList;
 
 import book.Livro;
+import funcionalidades.Emprestimo;
 import state.*;
+import strategy.*;
 import user.*;
 
 public class Facade {
@@ -23,22 +25,21 @@ public class Facade {
 	}
 	
 	public void registrarUsuarios(){
-		usuarios.add(new Funcionario("123","João da Silva"));
-		usuarios.add(new Aluno("456","Luiz Fernando Rodrigues"));
-		usuarios.add(new Funcionario("789","Pedro Paulo"));
-		usuarios.add(new Professor("100","Carlos Lucena"));
+		usuarios.add(new Funcionario("123","João da Silva", new EmprestimoFuncionarioAluno()));
+		usuarios.add(new Aluno("456","Luiz Fernando Rodrigues", new EmprestimoFuncionarioAluno()));
+		usuarios.add(new Funcionario("789","Pedro Paulo", new EmprestimoFuncionarioAluno()));
+		usuarios.add(new Professor("100","Carlos Lucena", new EmprestimoProfessor()));
 	}
 	
 	public void registrarLivros(){
-		//TODO: retirar state de livro
 		
-		livros.add(new Livro("100","Engenharia de Software","AddisonWesley","Ian Sommervile","6a","2000", new LivroNaoReservado()));
-		livros.add(new Livro("101","UML – Guia do Usuário","Campus","Grady Booch,James Rumbaugh,Ivar Jacobson","7a","2000", new LivroNaoReservado()));
-		livros.add(new Livro("200","Code Complete","Microsoft Press","Steve McConnell","2a","2014", new LivroNaoReservado()));
-		livros.add(new Livro("201","Agile SoftwareDevelopment,Principles,Patterns,and Practices","Prentice Hall","Robert Martin","1a","2002", new LivroNaoReservado()));
-		livros.add(new Livro("300","Refactoring:Improving the Design of Existing Code","Addison-Wesley Professional","Martin Fowler","1a","1999", new LivroNaoReservado()));
-		livros.add(new Livro("301","Software Metrics: A Rigorous and Practical Approach","CRC Press","Norman Fenton, James Bieman","3a","2014", new LivroNaoReservado()));
-		livros.add(new Livro("400","UML Distilled: A Brief Guide to the Standard Object Modeling Language","Addison-Wesley Professional","Martin Fowler","3a","2003", new LivroNaoReservado()));
+		livros.add(new Livro("100","Engenharia de Software","AddisonWesley","Ian Sommervile","6a","2000"));
+		livros.add(new Livro("101","UML – Guia do Usuário","Campus","Grady Booch,James Rumbaugh,Ivar Jacobson","7a","2000"));
+		livros.add(new Livro("200","Code Complete","Microsoft Press","Steve McConnell","2a","2014"));
+		livros.add(new Livro("201","Agile SoftwareDevelopment,Principles,Patterns,and Practices","Prentice Hall","Robert Martin","1a","2002"));
+		livros.add(new Livro("300","Refactoring:Improving the Design of Existing Code","Addison-Wesley Professional","Martin Fowler","1a","1999"));
+		livros.add(new Livro("301","Software Metrics: A Rigorous and Practical Approach","CRC Press","Norman Fenton, James Bieman","3a","2014"));
+		livros.add(new Livro("400","UML Distilled: A Brief Guide to the Standard Object Modeling Language","Addison-Wesley Professional","Martin Fowler","3a","2003"));
 
 	}
 	
@@ -77,12 +78,17 @@ public class Facade {
 	
 	//emp
 	public void realizarEmprestimo(String idUsuario, String idLivro){
+		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
+		Usuario usuario = Facade.getInstancia().obterUsuarioPorId(idUsuario);
+		
+		usuario.requerirEmprestimo();
 		
 	}
 	
 	//dev
 	public void realizarDevolucao(String idUsuario, String idLivro){
-		
+		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
+		Usuario usuario = Facade.getInstancia().obterUsuarioPorId(idUsuario);
 	}
 	
 	//res

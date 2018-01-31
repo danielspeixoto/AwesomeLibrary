@@ -12,12 +12,10 @@ public class Emprestimo {
 	private Livro livroAssociado;
 	private Calendar dataDeEmprestimo;
 	private Calendar dataDeDevolucao;
-	private TempoDeEmprestimo tipo;
 	
-	public Emprestimo(Usuario usuarioAssociado, Livro livroAssociado, TempoDeEmprestimo tipo) {
+	public Emprestimo(Usuario usuarioAssociado, Livro livroAssociado) {
 		this.usuarioAssociado = usuarioAssociado;
 		this.livroAssociado = livroAssociado;
-		this.tipo = tipo;
 		this.dataDeEmprestimo = Calendar.getInstance();	
 		this.dataDeDevolucao = Calendar.getInstance();	
 		
@@ -33,7 +31,7 @@ public class Emprestimo {
 	}
 
 	public void setDataDeDevolucao(Calendar dataDeDevolucao) {
-		dataDeDevolucao.add(Calendar.DATE,tipo.getPeriodoDeEmprestimo());
+		
 	}
 
 

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import funcionalidades.Reserva;
 import observer.*;
 import state.EstadoExemplar;
-import state.EstadoLivro;
 import user.Usuario;
 
 public class Livro implements Subject{
@@ -18,18 +17,15 @@ public class Livro implements Subject{
 	private ArrayList<Reserva> reservas;
 	private ArrayList<Exemplar> exemplares = new ArrayList();
 	private ArrayList observers;
-	
-	private EstadoLivro estadoAtual;
-	
-	
-	public Livro(String id, String titulo, String editora, String autores, String edicao, String anoDePublicacao, EstadoLivro estadoInicial) {
+
+		
+	public Livro(String id, String titulo, String editora, String autores, String edicao, String anoDePublicacao) {
 		this.id = id;
 		this.titulo = titulo;
 		this.editora = editora;
 		this.autores = autores;
 		this.edicao = edicao;
 		this.anoDePublicacao = anoDePublicacao;		
-		this.estadoAtual = estadoInicial;
 		
 	}
 	
@@ -164,13 +160,6 @@ public class Livro implements Subject{
 		return anoDePublicacao;
 	}
 	
-	public EstadoLivro getEstadoAtual() {
-		return estadoAtual;
-	}
-
-	public void setEstadoAtual(EstadoLivro estadoAtual) {
-		this.estadoAtual = estadoAtual;
-	}
 
 	public String getTitulo() {
 		return titulo;

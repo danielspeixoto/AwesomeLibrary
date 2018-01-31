@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import book.Livro;
 import funcionalidades.*;
+import strategy.TempoDeEmprestimo;
 
 public abstract class Usuario {
 	private final String id;
@@ -11,15 +12,21 @@ public abstract class Usuario {
 	private ArrayList<Reserva> reservas;
 	private ArrayList<Emprestimo> emprestimos;
 	private ArrayList<Historico> historico;
+	private TempoDeEmprestimo tipo;
 	
 	
 	
-	public Usuario(String id, String nome){
+	public Usuario(String id, String nome, TempoDeEmprestimo tipo){
 		this.id = id;
 		this.nome = nome;
+		this.tipo = tipo;
 		reservas = new ArrayList();
 		emprestimos = new ArrayList();
 		historico = new ArrayList();
+	}
+	
+	public void requerirEmprestimo(){
+		tipo.fazerEmprestimo();
 	}
 	
 	public void registrarObservadorDeLivro(Livro livro){}
@@ -46,7 +53,10 @@ public abstract class Usuario {
 		return reservas;
 	}
 	
-
+	public void addEmprestimo(Emprestimo emprestimo){
+		
+	}
+	
 	public ArrayList<Emprestimo> getEmprestimos() {
 		return emprestimos;
 	}
@@ -62,5 +72,6 @@ public abstract class Usuario {
 	public String getNome() {
 		return nome;
 	}
+	
 	
 }

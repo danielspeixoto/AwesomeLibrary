@@ -8,13 +8,13 @@ import funcionalidades.Emprestimo;
 import observer.*;
 import strategy.TempoDeEmprestimo;
 
-public class Professor extends Usuario implements Observer, TempoDeEmprestimo {
+public class Professor extends Usuario implements Observer {
 	
 	private int notificacoesDeReserva;
 	private Subject livroObservado;
 	
-	public Professor(String id, String nome) {
-		super(id, nome);
+	public Professor(String id, String nome, TempoDeEmprestimo tipo) {
+		super(id, nome, tipo);
 		
 		this.notificacoesDeReserva = 0;
 	}

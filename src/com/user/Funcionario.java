@@ -7,24 +7,13 @@ import funcionalidades.Emprestimo;
 import strategy.TempoDeEmprestimo;
 
 
-public class Funcionario extends Usuario implements TempoDeEmprestimo {
+public class Funcionario extends Usuario {
 
-	public Funcionario(String id, String nome) {
-		super(id, nome);
+	public Funcionario(String id, String nome, TempoDeEmprestimo tipo) {
+		super(id, nome, tipo);
 	}
 	
 	public void registrarObservadorDeLivro(Livro livro){}
 
-	@Override
-	public Calendar getDataDevolucao(Emprestimo emprestimo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getPeriodoDeEmprestimo() {
-		return 2;
-	}
-	
 
 }
