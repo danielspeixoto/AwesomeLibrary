@@ -4,4 +4,5 @@ public interface EstadoExemplar {
 	public void emprestarExemplar();
 	public void devolverExemplar();
 	public void reservarExemplar();
+	public String getStatus();
 }

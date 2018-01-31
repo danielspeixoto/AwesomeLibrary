@@ -20,4 +20,9 @@ public class ExemplarDisponivel implements EstadoExemplar {
 		
 	}
 
+	@Override
+	public String getStatus() {
+		return "Disponível";
+	}
+
 }

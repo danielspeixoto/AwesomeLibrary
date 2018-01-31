@@ -20,4 +20,9 @@ public class ExemplarEmprestado implements EstadoExemplar {
 		
 	}
 
+	@Override
+	public String getStatus() {
+		return "Emprestado";
+	}
+
 }
