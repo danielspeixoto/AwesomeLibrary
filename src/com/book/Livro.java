@@ -16,7 +16,7 @@ public class Livro implements Subject{
 	private final String edicao;
 	private final String anoDePublicacao;
 	private ArrayList<Reserva> reservas;
-	private ArrayList exemplares = new ArrayList();
+	private ArrayList<Exemplar> exemplares = new ArrayList();
 	private ArrayList observers;
 	
 	private EstadoLivro estadoAtual;
@@ -95,6 +95,54 @@ public class Livro implements Subject{
 		}
 		
 	}
+	
+	public void mostrarInformacoes(){
+		System.out.println("Título: "+this.getTitulo());
+		System.out.println("Quantidade de reservas: "+this.getQuantidadeDeReservas());
+		
+		if(this.getQuantidadeDeReservas() > 0){
+			System.out.println("Usuários Responsáveis:");
+			this.mostrarUsuariosResponsaveisPorReserva();
+		}
+		
+		this.getInformacoesDosExemplares();
+	}
+	
+	
+	public void mostrarUsuariosResponsaveisPorReserva(){
+		for(int i = 0; i < this.getQuantidadeDeReservas(); i++)
+			System.out.println(this.getReservas().get(i).getUsuarioResponsavel());
+	}
+	
+	
+	
+	public void getInformacoesDosExemplares(){
+		System.out.println("Exemplares:");
+		
+		for(int i = 0; i < this.getQuantidadeDeExemplares(); i++){
+			Exemplar exemplar = this.getExemplares().get(i);
+			String status = exemplar.retornarStatus();
+			
+			System.out.println("Código: "+exemplar.getCodigo());
+			System.out.println("Status: "+status);
+			
+			if(status.equals("Emprestado")){
+				Usuario usuario = exemplar.getUsuarioResponsavelPorEmprestimo();
+				System.out.println("Usuario Responsável: "+usuario.getNome());
+				System.out.println("Data de Empréstimo: "+exemplar.getEmprestimo().getDataDeEmprestimo());
+				System.out.println("Data prevista para devolução: "+exemplar.getEmprestimo().getDataDeDevolucao());
+			}
+		}
+	}
+	
+
+	public ArrayList<Exemplar> getExemplares() {
+		return exemplares;
+	}
+
+	public ArrayList<Reserva> getReservas() {
+		return reservas;
+	}
 
 	public String getId() {
 		return id;
@@ -126,6 +174,14 @@ public class Livro implements Subject{
 
 	public String getTitulo() {
 		return titulo;
+	}
+	
+	public int getQuantidadeDeReservas(){
+		return reservas.size();
+	}
+	
+	public int getQuantidadeDeExemplares(){
+		return exemplares.size();
 	}
 	
 	
