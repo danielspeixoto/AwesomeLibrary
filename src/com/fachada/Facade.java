@@ -90,25 +90,32 @@ public class Facade {
 		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
 		Usuario usuario = Facade.getInstancia().obterUsuarioPorId(idUsuario);
 		
+		livro.reservarLivro(usuario);
+		
 	}
 	
 	
 	//obs
 	public void observarLivro(String idUsuario, String idLivro){
 		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
-		Professor usuario = (Professor) Facade.getInstancia().obterUsuarioPorId(idUsuario);
+		Usuario usuario = Facade.getInstancia().obterUsuarioPorId(idUsuario);
 		
 		usuario.registrarObservadorDeLivro(livro);
 	}
 	
 	//liv
 	public void obterInformacoesLivro(String idLivro){
+		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
 		
+		livro.getInformacoesDosExemplares();
 	}
 	
 	//ntf
 	public void obterNotificacoes(String idUsuario){
+		//TODO: modificar construtor para atender a mais tipos de usuarios
+		Professor usuario = (Professor) Facade.getInstancia().obterUsuarioPorId(idUsuario);
 		
+		usuario.retornarNotificacoes();
 	}
 	
 	//usu
