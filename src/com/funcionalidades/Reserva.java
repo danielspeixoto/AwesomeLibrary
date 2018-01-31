@@ -1,5 +1,7 @@
 package funcionalidades;
 
+import java.util.ArrayList;
+
 import book.Livro;
 import user.Usuario;
 
@@ -32,4 +34,6 @@ public class Reserva {
 	public void setLivroAssociado(Livro livroAssociado) {
 		this.livroAssociado = livroAssociado;
 	}
+
+
 }
