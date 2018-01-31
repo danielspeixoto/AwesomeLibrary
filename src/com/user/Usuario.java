@@ -13,6 +13,7 @@ public abstract class Usuario {
 	private ArrayList<Historico> historico;
 	
 	
+	
 	public Usuario(String id, String nome){
 		this.id = id;
 		this.nome = nome;
@@ -20,6 +21,9 @@ public abstract class Usuario {
 		emprestimos = new ArrayList();
 		historico = new ArrayList();
 	}
+	
+	public void registrarObservadorDeLivro(Livro livro){}
+
 	
 	public int getQuantidadeDeReservas(){
 		return reservas.size();
@@ -36,9 +40,19 @@ public abstract class Usuario {
 		
 		return false;		
 	}
+	
 
 	public ArrayList<Reserva> getReservas() {
 		return reservas;
+	}
+	
+
+	public ArrayList<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
+
+	public ArrayList<Historico> getHistorico() {
+		return historico;
 	}
 
 	public String getId() {

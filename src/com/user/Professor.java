@@ -1,13 +1,15 @@
 package user;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import book.Livro;
+import funcionalidades.Emprestimo;
 import observer.*;
+import strategy.TempoDeEmprestimo;
 
-public class Professor extends Usuario implements Observer {
+public class Professor extends Usuario implements Observer, TempoDeEmprestimo {
 	
-	private final int tempoDeEmprestimo = 7;
 	private int notificacoesDeReserva;
 	private Subject livroObservado;
 	
@@ -25,9 +27,28 @@ public class Professor extends Usuario implements Observer {
 	public void update() {
 		this.notificacoesDeReserva++;
 		
-		System.out.println("Professor "+this.getNome()+" notificado "+this.notificacoesDeReserva+" vezes.");
-		
 	}
+	
+	public void retornarNotificacoes(){
+		System.out.println("O professor "+this.getNome()+" foi notificado "+this.getNotificacoesDeReserva()+" vezes.");
+	}
+
+	public int getNotificacoesDeReserva() {
+		return notificacoesDeReserva;
+	}
+
+	@Override
+	public Calendar getDataDevolucao(Emprestimo emprestimo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getPeriodoDeEmprestimo() {
+		return 7;
+	}
+	
+	
 
 
 	
