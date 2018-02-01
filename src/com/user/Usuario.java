@@ -25,8 +25,8 @@ public abstract class Usuario {
 		historico = new ArrayList();
 	}
 	
-	public void requerirEmprestimo(){
-		tipo.fazerEmprestimo();
+	public void requerirEmprestimo(Livro livro){
+		tipo.fazerEmprestimo(this, livro);
 	}
 	
 	public void registrarObservadorDeLivro(Livro livro){}

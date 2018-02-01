@@ -81,7 +81,7 @@ public class Facade {
 		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
 		Usuario usuario = Facade.getInstancia().obterUsuarioPorId(idUsuario);
 		
-		usuario.requerirEmprestimo();
+		usuario.requerirEmprestimo(livro);
 		
 	}
 	
