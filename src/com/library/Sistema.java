@@ -18,6 +18,9 @@ public class Sistema {
 		Facade.getInstancia().registrarUsuarios();
 		Facade.getInstancia().registrarLivros();
 		Facade.getInstancia().registrarExemplares();
+		
+		//inicializa hashmap
+		iniciarComandos();
 	}
 	
 	private void iniciarComandos(){
@@ -51,7 +54,6 @@ public class Sistema {
 	public void servico(String comando, Dados dado){
 		
 		Command c = (Command) comandos.get(comando);
-		
 		c.execute(dado);
 	}
 	
