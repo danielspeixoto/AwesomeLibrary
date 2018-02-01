@@ -1,13 +1,17 @@
 package state;
 
+import book.Exemplar;
+import book.Livro;
+import user.Usuario;
+
 public class ExemplarIndisponivel implements EstadoExemplar {
 
 	@Override
-	public void emprestarExemplar() {
+	public void emprestarExemplar(Usuario usuario, Livro livro, Exemplar ex) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
 	public void devolverExemplar() {
 		// TODO Auto-generated method stub
@@ -18,6 +22,12 @@ public class ExemplarIndisponivel implements EstadoExemplar {
 	public void reservarExemplar() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public String getStatus() {
+		return "Indisponível";
 	}
 
 }
