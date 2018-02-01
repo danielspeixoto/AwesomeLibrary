@@ -2,7 +2,9 @@ package strategy;
 
 import java.util.Calendar;
 
+import book.Livro;
 import funcionalidades.Emprestimo;
+import user.Usuario;
 
 public class EmprestimoProfessor implements TempoDeEmprestimo {
 
@@ -19,7 +21,7 @@ public class EmprestimoProfessor implements TempoDeEmprestimo {
 	}
 
 	@Override
-	public void fazerEmprestimo() {
+	public void fazerEmprestimo(Usuario usuario, Livro livro) {
 		// TODO Auto-generated method stub
 		
 	}

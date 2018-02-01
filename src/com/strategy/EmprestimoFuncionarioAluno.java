@@ -2,7 +2,12 @@ package strategy;
 
 import java.util.Calendar;
 
+import book.Exemplar;
+import book.Livro;
 import funcionalidades.Emprestimo;
+import state.EstadoExemplar;
+import state.ExemplarDisponivel;
+import user.Usuario;
 
 public class EmprestimoFuncionarioAluno implements TempoDeEmprestimo {
 
@@ -19,8 +24,14 @@ public class EmprestimoFuncionarioAluno implements TempoDeEmprestimo {
 	}
 
 	@Override
-	public void fazerEmprestimo() {
-		// TODO Auto-generated method stub
+	public void fazerEmprestimo(Usuario usuario, Livro livro) {
+		for(int i=0;i<livro.getQuantidadeDeExemplares();i++) {
+			Exemplar ex = livro.getExemplares().get(i);
+			if(ex.getEstadoAtual() instanceof ExemplarDisponivel) {
+				ex.getEstadoAtual().emprestarExemplar(usuario, livro, ex);
+				break;
+			}
+		}
 		
 	}
 
