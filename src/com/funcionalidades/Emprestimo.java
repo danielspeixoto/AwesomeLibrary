@@ -14,10 +14,12 @@ public class Emprestimo {
 	private Calendar dataDeDevolucao;
 	
 	public Emprestimo(Usuario usuarioAssociado, Livro livroAssociado) {
+		Calendar c = Calendar.getInstance();
 		this.usuarioAssociado = usuarioAssociado;
 		this.livroAssociado = livroAssociado;
-		this.dataDeEmprestimo = Calendar.getInstance();	
-		this.dataDeDevolucao = Calendar.getInstance();	
+		this.dataDeEmprestimo = c;
+		c.add(Calendar.DATE, usuarioAssociado.getPeriodoDeEmprestimo());
+		this.dataDeDevolucao = c;
 		
 		this.setDataDeDevolucao(dataDeEmprestimo);
 	}
