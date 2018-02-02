@@ -20,4 +20,7 @@ public class Aluno extends Usuario {
 		return 5;
 	}
 	
+	public int getMaximosEmprestimos(){
+		return 4;
+	}
 }

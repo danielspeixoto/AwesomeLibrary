@@ -14,6 +14,12 @@ public class Funcionario extends Usuario {
 	}
 	
 	public void registrarObservadorDeLivro(Livro livro){}
-
-
+	
+	public int getPeriodoDeEmprestimo(){
+		return 2;
+	}
+	
+	public int getMaximosEmprestimos(){
+		return 3;
+	}
 }

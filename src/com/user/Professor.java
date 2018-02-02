@@ -48,6 +48,9 @@ public class Professor extends Usuario implements Observer {
 		return 7;
 	}
 	
+	public int getMaximosEmprestimos(){
+		return Integer.MAX_VALUE;
+	}
 	
 
 
