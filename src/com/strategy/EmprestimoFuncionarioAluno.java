@@ -31,6 +31,10 @@ public class EmprestimoFuncionarioAluno implements TempoDeEmprestimo {
 				ex.getEstadoAtual().emprestarExemplar(usuario, livro, ex);
 				break;
 			}
+			else if(i==livro.getQuantidadeDeExemplares()-1) {
+				System.out.println("Não foi possivel realizar o empréstimo do livro " +
+			livro.getTitulo() + " Para " + usuario.getNome() + " pois todos os exemplares estão Indisponíveis");
+			}
 		}
 		
 	}
