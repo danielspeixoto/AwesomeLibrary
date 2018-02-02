@@ -14,7 +14,7 @@ public class Livro implements Subject{
 	private final String autores;
 	private final String edicao;
 	private final String anoDePublicacao;
-	private ArrayList<Reserva> reservas;
+	private ArrayList<Reserva> reservas = new ArrayList();
 	private ArrayList<Exemplar> exemplares = new ArrayList();
 	private ArrayList observers;
 
