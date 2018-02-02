@@ -54,7 +54,7 @@ public abstract class Usuario {
 	}
 	
 	public void addEmprestimo(Emprestimo emprestimo){
-		
+		this.getEmprestimos().add(emprestimo);
 	}
 	
 	public ArrayList<Emprestimo> getEmprestimos() {
@@ -73,5 +73,12 @@ public abstract class Usuario {
 		return nome;
 	}
 	
+	public int getPeriodoDeEmprestimo(){
+		return 0;
+	}
+	
+	public int getMaximosEmprestimos(){
+		return 0;
+	}
 	
 }
