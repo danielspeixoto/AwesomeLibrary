@@ -89,6 +89,8 @@ public class Facade {
 	public void realizarDevolucao(String idUsuario, String idLivro){
 		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
 		Usuario usuario = Facade.getInstancia().obterUsuarioPorId(idUsuario);
+		
+		usuario.fazerDevolução(livro);
 	}
 	
 	//res
