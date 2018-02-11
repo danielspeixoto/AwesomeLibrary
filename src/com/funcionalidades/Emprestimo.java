@@ -12,6 +12,7 @@ public class Emprestimo {
 	private Livro livroAssociado;
 	private Calendar dataDeEmprestimo;
 	private Calendar dataDeDevolucao;
+	private String status;
 	
 	public Emprestimo(Usuario usuarioAssociado, Livro livroAssociado) {
 		Calendar c = Calendar.getInstance();
@@ -22,6 +23,7 @@ public class Emprestimo {
 		this.dataDeDevolucao = c;
 		
 		this.setDataDeDevolucao(dataDeEmprestimo);
+		this.status = "Em curso";
 	}
 
 	public Date getDataDeDevolucao() {
@@ -45,7 +47,13 @@ public class Emprestimo {
 		return livroAssociado;
 	}
 	
+	public String getStatus() {
+		return status;
+	}
 	
+	public String setStatus(String status) {
+		return this.status = status;
+	}
 	
 	
 }
