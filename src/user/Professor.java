@@ -11,7 +11,7 @@ import strategy.TempoDeEmprestimo;
 public class Professor extends Usuario implements Observer {
 	
 	private int notificacoesDeReserva;
-	private Subject livroObservado;
+	//private Subject livroObservado;
 	
 	public Professor(String id, String nome, TempoDeEmprestimo tipo) {
 		super(id, nome, tipo);
@@ -20,7 +20,7 @@ public class Professor extends Usuario implements Observer {
 	}
 	
 	public void registrarObservadorDeLivro(Livro livro){
-		livroObservado.registerObservers(this);
+		livro.registerObservers(this);
 	}
 
 	@Override

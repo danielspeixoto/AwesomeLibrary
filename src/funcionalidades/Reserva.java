@@ -1,5 +1,7 @@
 package funcionalidades;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,6 +10,7 @@ import book.Livro;
 import user.Usuario;
 
 public class Reserva {
+	private static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	private Usuario usuarioResponsavel;
 	private Livro livroAssociado;
 	private Calendar dataDeReserva;
@@ -21,6 +24,10 @@ public class Reserva {
 
 	public Date getDataDeReserva() {
 		return dataDeReserva.getTime();
+	}
+	
+	public String getDataDeReservaString() {
+		return dateFormat.format(dataDeReserva.getTime());
 	}
 
 

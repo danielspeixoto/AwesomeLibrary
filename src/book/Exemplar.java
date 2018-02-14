@@ -3,18 +3,15 @@ package book;
 import java.util.ArrayList;
 
 import funcionalidades.Emprestimo;
-import state.EstadoExemplar;
 import user.Usuario;
 
 public class Exemplar  {
 	private final String codigo;
-	private EstadoExemplar estadoAtual;
 	private Emprestimo emprestimo;
 	private String status;
 	
-	public Exemplar(String codigo, EstadoExemplar estadoInicial) {
+	public Exemplar(String codigo) {
 		this.codigo = codigo;
-		this.estadoAtual = estadoInicial;
 		this.status = "Disponível";
 	}
 	
@@ -22,9 +19,6 @@ public class Exemplar  {
 		this.emprestimo = emprestimo;
 	}
 	
-	public String retornarStatus(){
-		return this.getEstadoAtual().getStatus();
-	}
 	
 	public Usuario getUsuarioResponsavelPorEmprestimo(){
 		return this.getEmprestimo().getUsuarioAssociado();
@@ -39,14 +33,6 @@ public class Exemplar  {
 		this.emprestimo = emprestimo;
 	}
 
-	public EstadoExemplar getEstadoAtual() {
-		return estadoAtual;
-	}
-
-
-	public void setEstadoAtual(EstadoExemplar estadoAtual) {
-		this.estadoAtual = estadoAtual;
-	}
 	
 
 	public String getStatus() {

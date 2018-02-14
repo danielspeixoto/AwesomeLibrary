@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import book.Livro;
 import funcionalidades.Emprestimo;
-import state.*;
 import strategy.*;
 import user.*;
 
@@ -44,15 +43,15 @@ public class Facade {
 	}
 	
 	public void registrarExemplares(){
-		livros.get(0).adicionaExemplar("01",new ExemplarDisponivel());
-		livros.get(0).adicionaExemplar("02",new ExemplarDisponivel());
-		livros.get(1).adicionaExemplar("03",new ExemplarDisponivel());
-		livros.get(2).adicionaExemplar("04",new ExemplarDisponivel());
-		livros.get(3).adicionaExemplar("05",new ExemplarDisponivel());
-		livros.get(4).adicionaExemplar("06",new ExemplarDisponivel());
-		livros.get(4).adicionaExemplar("07",new ExemplarDisponivel());
-		livros.get(5).adicionaExemplar("08",new ExemplarDisponivel());
-		livros.get(5).adicionaExemplar("09",new ExemplarDisponivel());
+		livros.get(0).adicionaExemplar("01");
+		livros.get(0).adicionaExemplar("02");
+		livros.get(1).adicionaExemplar("03");
+		livros.get(2).adicionaExemplar("04");
+		livros.get(3).adicionaExemplar("05");
+		livros.get(4).adicionaExemplar("06");
+		livros.get(4).adicionaExemplar("07");
+		livros.get(5).adicionaExemplar("08");
+		livros.get(5).adicionaExemplar("09");
 	}
 	
 	public Livro obterLivroPorId(String idLivro){

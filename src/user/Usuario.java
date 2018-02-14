@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import book.Exemplar;
 import book.Livro;
 import funcionalidades.*;
-import state.ExemplarDisponivel;
-import state.ExemplarIndisponivel;
 import strategy.TempoDeEmprestimo;
 
 public abstract class Usuario {
@@ -48,8 +46,8 @@ public abstract class Usuario {
 				
 				for(int j=0;j<emp.getLivroAssociado().getQuantidadeDeExemplares();j++) {
 					Exemplar ex = livro.getExemplares().get(j);
-					if(ex.getEstadoAtual().getStatus() == "Indisponível") {
-						ex.setEstadoAtual(new ExemplarDisponivel());
+					if(ex.getStatus() == "Indisponível") {
+						ex.setStatus("Disponível");
 						break;
 					}
 				}
@@ -101,7 +99,7 @@ public abstract class Usuario {
 		for(int i = 0; i < reservas.size(); i++){
 			Reserva res = reservas.get(i);
 			System.out.println("Título: "+res.getLivroAssociado().getTitulo());
-			System.out.println("Data de Solicitação: "+res.getDataDeReserva());
+			System.out.println("Data de Solicitação: "+res.getDataDeReservaString());
 			
 		}
 		

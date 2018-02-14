@@ -5,7 +5,6 @@ import java.util.Calendar;
 import book.Exemplar;
 import book.Livro;
 import funcionalidades.Emprestimo;
-import state.ExemplarIndisponivel;
 import user.Usuario;
 
 public class EmprestimoProfessor implements TempoDeEmprestimo {
@@ -27,7 +26,7 @@ public class EmprestimoProfessor implements TempoDeEmprestimo {
 		boolean impedeEmprestimo = false;
 		for(int i=0;i<livro.getQuantidadeDeExemplares();i++) {
 			Exemplar ex = livro.getExemplares().get(i);
-			if(ex.getEstadoAtual().getStatus() == "Disponível") {
+			if(ex.getStatus() == "Disponível") {
 				for(int j=0;j<usuario.getEmprestimos().size();j++) {
 					if(usuario.getEmprestimos().get(i).getLivroAssociado().getId() == livro.getId()) {
 						System.out.println("Não foi possível realizar o empréstimo do livro " + livro.getTitulo()
@@ -38,7 +37,7 @@ public class EmprestimoProfessor implements TempoDeEmprestimo {
 				}
 				if(!impedeEmprestimo) {
 					System.out.println("O exemplar " + livro.getTitulo() + " Foi emprestado para " + usuario.getNome() + " com sucesso");
-					ex.setEstadoAtual(new ExemplarIndisponivel());
+					ex.setStatus("Indisponível");
 					usuario.addEmprestimo(new Emprestimo(usuario,livro));
 				}
 				break;

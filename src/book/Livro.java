@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import funcionalidades.Reserva;
 import observer.*;
-import state.EstadoExemplar;
 import user.Usuario;
 
 public class Livro implements Subject{
@@ -16,7 +15,7 @@ public class Livro implements Subject{
 	private final String anoDePublicacao;
 	private ArrayList<Reserva> reservas = new ArrayList();
 	private ArrayList<Exemplar> exemplares = new ArrayList();
-	private ArrayList observers;
+	private ArrayList<Observer> observers =  new ArrayList();
 
 		
 	public Livro(String id, String titulo, String editora, String autores, String edicao, String anoDePublicacao) {
@@ -30,8 +29,8 @@ public class Livro implements Subject{
 	}
 	
 
-	public void adicionaExemplar(String codigo, EstadoExemplar estadoInicial){
-		exemplares.add(new Exemplar(codigo,estadoInicial));
+	public void adicionaExemplar(String codigo){
+		exemplares.add(new Exemplar(codigo));
 	}
 	
 	public void reservarLivro(Usuario usuario){
@@ -62,7 +61,7 @@ public class Livro implements Subject{
 	public void verificaReservasSimultaneas(){
 		
 		if(reservas.size() > 2)
-			this.notifyObserver();
+			this.notifyObservers();
 	}
 	
 	
@@ -84,10 +83,11 @@ public class Livro implements Subject{
 
 
 	@Override
-	public void notifyObserver() {
+	public void notifyObservers() {
 
 		for(int i = 0; i < observers.size(); i++){
 	           Observer o = (Observer)observers.get(i);
+	           o.update();
 		}
 		
 	}
@@ -117,7 +117,7 @@ public class Livro implements Subject{
 		
 		for(int i = 0; i < this.getQuantidadeDeExemplares(); i++){
 			Exemplar exemplar = this.getExemplares().get(i);
-			String status = exemplar.retornarStatus();
+			String status = exemplar.getStatus();
 			
 			System.out.println("Código: "+exemplar.getCodigo());
 			System.out.println("Status: "+status);
