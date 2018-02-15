@@ -30,7 +30,7 @@ public abstract class Usuario {
 		tipo.fazerEmprestimo(this, livro);
 	}
 	
-	public void fazerDevolução(Livro livro){
+	public void fazerDevolucao(Livro livro){
 		if(this.getEmprestimos().size() == 0) {
 			System.out.println("O exemplar " + livro.getTitulo() + " não pode ser devolvido por " +
 		this.getNome() + " pois não há exemplares emprestados");
@@ -41,9 +41,9 @@ public abstract class Usuario {
 				this.getEmprestimos().remove(i);
 				emp.setStatus("Finalizado");
 				this.historico.add(emp);
-				System.out.println("O exemplar " + livro.getTitulo() + " que estava emprestado para " 
+				System.out.println("O exemplar " + livro.getTitulo() + " que estava emprestado para "
 				+ this.getNome() + " foi devolvido com sucesso");
-				
+
 				for(int j=0;j<emp.getLivroAssociado().getQuantidadeDeExemplares();j++) {
 					Exemplar ex = livro.getExemplares().get(j);
 					if(ex.getStatus() == "Indisponível") {

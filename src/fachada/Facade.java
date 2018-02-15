@@ -89,7 +89,7 @@ public class Facade {
 		Livro livro = Facade.getInstancia().obterLivroPorId(idLivro);
 		Usuario usuario = Facade.getInstancia().obterUsuarioPorId(idUsuario);
 		
-		usuario.fazerDevolução(livro);
+		usuario.fazerDevolucao(livro);
 	}
 	
 	//res
